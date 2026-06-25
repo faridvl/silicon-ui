@@ -95,9 +95,10 @@ pnpm format
 
 ## Convenciones de documentación
 
-> **Regla obligatoria:** Después de cada componente o fase completada, actualizar:
+> **Regla obligatoria:** Después de cada componente o fase completada:
 > 1. `CLAUDE.md` — marcar el ítem como ✅, actualizar el estado de la fase
 > 2. `README.md` — actualizar la tabla de componentes y el roadmap
+> 3. Hacer **commit + push** con los cambios del componente y los docs juntos en el mismo commit
 
 ---
 
@@ -204,7 +205,7 @@ Cada sección acepta su config type de `silicon.ts` como props.
 
 Orden de prioridad:
 1. ✅ `HeroSection` — 5 variantes (saas, agency, app, financial, minimal), media support, decorative bg
-2. `FeaturesGrid`
+2. ✅ `FeaturesGrid` — variantes light/dark/gray, iconStyle boxed/circle/flat, columns 2/3/4
 3. `PricingSection` (con toggle mensual/anual)
 4. `TestimonialsCarousel`
 5. `CTABanner`
