@@ -237,10 +237,12 @@ Templates disponibles:
 - [x] Loading state con animación de puntos mientras el agente genera
 - [x] Persistencia del historial vía Zustand + localStorage
 
-### FASE 5 — Export System ⏳ PENDIENTE
-- Export como proyecto Next.js standalone
-- Export como HTML estático
-- Export ZIP
+### FASE 5 — Export System ✅ COMPLETA
+- [x] Export HTML estático — client-side: captura `innerHTML` del preview + Tailwind CDN Play + silicon tokens → descarga `.html`
+- [x] Export como proyecto Next.js standalone — ZIP con `app/layout.tsx`, `app/page.tsx`, `app/globals.css`, `package.json`, `page-config.json`, `README.md`
+- [x] Export ZIP — generado server-side con `fflate` en `/api/export/nextjs`
+
+**Nota de implementación:** `react-dom/server` está bloqueado en Next.js 15 App Router route handlers (conflicto con el pipeline RSC). El export HTML se hace en el cliente capturando el DOM del preview — el beneficio es que el export refleja el estado visual actual (pricing toggle, dark mode, color primario).
 
 ### FASE 6 — Developer Experience ⏳ PENDIENTE
 - **Storybook** en `packages/silicon-ui` — catálogo aislado por componente con controles interactivos (variant, size, loading, etc.) y docs automáticos

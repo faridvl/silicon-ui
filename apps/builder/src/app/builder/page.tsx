@@ -17,6 +17,91 @@ const TEMPLATE_LABELS: Record<TemplateId, string> = {
   'software-company': 'B2B',
 }
 
+const SILICON_TOKENS = `
+:root {
+  --si-primary: #6366f1;
+  --si-primary-faded: rgba(99, 102, 241, 0.12);
+  --si-secondary: #eff2fc;
+  --si-success: #22c55e;
+  --si-info: #4c82f7;
+  --si-warning: #ffba08;
+  --si-danger: #ef4444;
+  --si-dark: #0b0f19;
+  --si-white: #ffffff;
+  --si-gray-100: #f3f4f6;
+  --si-gray-200: #e5e7eb;
+  --si-gray-300: #d1d5db;
+  --si-gray-400: #9ca3af;
+  --si-gray-500: #6b7280;
+  --si-gray-600: #4b5563;
+  --si-gray-700: #374151;
+  --si-gray-800: #1f2937;
+  --si-gray-900: #111827;
+  --si-body-bg: #ffffff;
+  --si-body-color: #374151;
+  --si-heading-color: #0b0f19;
+  --si-font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --si-font-size-base: 1rem;
+  --si-line-height-base: 1.625;
+  --si-border-color: #e5e7eb;
+  --si-border-radius: 0.5rem;
+  --si-border-radius-sm: 0.25rem;
+  --si-border-radius-lg: 0.75rem;
+  --si-border-radius-xl: 1rem;
+  --si-border-radius-pill: 50rem;
+  --si-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --si-shadow: 0 0.5rem 1.125rem -0.5rem rgba(0, 0, 0, 0.15);
+  --si-shadow-lg: 0 1.125rem 2.5rem -0.5rem rgba(0, 0, 0, 0.15);
+  --si-shadow-xl: 0 1.5rem 3.5rem -0.5rem rgba(0, 0, 0, 0.2);
+  --si-spacer: 1rem;
+  --si-transition-base: all 0.25s ease-in-out;
+  --si-transition-fade: opacity 0.15s linear;
+}
+.dark {
+  --si-body-bg: #0b0f19;
+  --si-body-color: #9ca3af;
+  --si-heading-color: #ffffff;
+  --si-border-color: rgba(255, 255, 255, 0.1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  font-family: var(--si-font-family);
+  background-color: var(--si-body-bg);
+  color: var(--si-body-color);
+  margin: 0;
+  line-height: 1.625;
+}
+`
+
+function buildHtmlDocument(
+  bodyHtml: string,
+  title: string,
+  description: string,
+  primaryColor: string,
+  isDark: boolean,
+): string {
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+  return `<!DOCTYPE html>
+<html lang="es"${isDark ? ' class="dark"' : ''}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${esc(title)}</title>
+  ${description !== '' ? `<meta name="description" content="${esc(description)}">` : ''}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>${SILICON_TOKENS}
+:root { --si-primary: ${primaryColor}; }
+  </style>
+</head>
+<body>
+${bodyHtml}
+</body>
+</html>`
+}
+
 const WELCOME_MESSAGE = `Hola! Soy Silicon Agent. Descríbeme tu producto o empresa y generaré una landing page profesional usando el Silicon Design System.
 
 Ejemplo: "Crea una landing para una app de finanzas personales, colores verde y oscuro, tono profesional"
@@ -29,7 +114,9 @@ export default function BuilderPage() {
   const [input, setInput] = React.useState('')
   const [isDark, setIsDark] = React.useState(false)
   const [primaryColor, setPrimaryColor] = React.useState('#6366f1')
+  const [isExporting, setIsExporting] = React.useState<false | 'html' | 'nextjs'>(false)
   const messagesEndRef = React.useRef<HTMLDivElement>(null)
+  const previewRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -100,6 +187,50 @@ export default function BuilderPage() {
       })
     } finally {
       setGenerating(false)
+    }
+  }
+
+  const triggerDownload = (blob: Blob, filename: string) => {
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = filename
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
+  const getRenderedHtml = (): string => previewRef.current?.innerHTML ?? ''
+
+  const handleExportHtml = () => {
+    if (currentPage === null || isExporting !== false) return
+    const bodyHtml = getRenderedHtml()
+    const slug = currentPage.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+    const title = currentPage.meta?.title ?? currentPage.name
+    const description = currentPage.meta?.description ?? currentPage.description ?? ''
+    const html = buildHtmlDocument(bodyHtml, title, description, primaryColor, isDark)
+    triggerDownload(new Blob([html], { type: 'text/html; charset=utf-8' }), `${slug}.html`)
+  }
+
+  const handleExportNextjs = async () => {
+    if (currentPage === null || isExporting !== false) return
+    setIsExporting('nextjs')
+    try {
+      const renderedHtml = getRenderedHtml()
+      const res = await fetch('/api/export/nextjs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pageConfig: currentPage, renderedHtml, primaryColor }),
+      })
+      if (!res.ok) throw new Error('Export failed')
+      const blob = await res.blob()
+      const slug = currentPage.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+      triggerDownload(blob, `${slug}-nextjs.zip`)
+    } catch {
+      alert('Error al exportar proyecto. Inténtalo de nuevo.')
+    } finally {
+      setIsExporting(false)
     }
   }
 
@@ -279,22 +410,24 @@ export default function BuilderPage() {
 
           <div className="flex gap-2">
             <button
-              disabled={currentPage === null}
+              onClick={() => void handleExportNextjs()}
+              disabled={currentPage === null || isExporting !== false}
               className="rounded-lg border border-[--si-border-color] px-3 py-1.5 text-xs font-semibold text-[--si-gray-700] transition-colors hover:border-[--si-primary] hover:text-[--si-primary] disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Export Next.js
+              {isExporting === 'nextjs' ? '···' : 'Export Next.js'}
             </button>
             <button
-              disabled={currentPage === null}
+              onClick={() => void handleExportHtml()}
+              disabled={currentPage === null || isExporting !== false}
               className="rounded-lg bg-[--si-primary] px-3 py-1.5 text-xs font-semibold text-white transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Export HTML
+              {isExporting === 'html' ? '···' : 'Export HTML'}
             </button>
           </div>
         </div>
 
         {/* Preview content */}
-        <div className="flex-1 overflow-y-auto bg-gray-50">
+        <div ref={previewRef} className="flex-1 overflow-y-auto bg-gray-50">
           {currentPage !== null ? (
             <PageRenderer config={currentPage} />
           ) : (
