@@ -1,0 +1,9 @@
+{
+  "name": "@silicon/config-tailwind",
+  "version": "0.0.0",
+  "private": true,
+  "files": ["silicon-preset.ts"],
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

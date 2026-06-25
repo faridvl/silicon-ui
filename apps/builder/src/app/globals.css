@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Silicon Design Tokens */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --si-primary: #6366f1;
+  --si-primary-faded: rgba(99, 102, 241, 0.12);
+  --si-secondary: #eff2fc;
+  --si-success: #22c55e;
+  --si-info: #4c82f7;
+  --si-warning: #ffba08;
+  --si-danger: #ef4444;
+  --si-dark: #0b0f19;
+  --si-white: #ffffff;
+  --si-body-bg: #ffffff;
+  --si-body-color: #374151;
+  --si-heading-color: #0b0f19;
+  --si-border-color: #e5e7eb;
+  --si-font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --si-shadow: 0 0.5rem 1.125rem -0.5rem rgba(0, 0, 0, 0.15);
+  --si-border-radius: 0.5rem;
+  --si-border-radius-pill: 50rem;
+  --si-gray-400: #9ca3af;
+  --si-gray-500: #6b7280;
+  --si-gray-700: #374151;
+}
+
+.dark {
+  --si-body-bg: #0b0f19;
+  --si-body-color: #9ca3af;
+  --si-heading-color: #ffffff;
+  --si-border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: var(--si-font-family);
+  background-color: var(--si-body-bg);
+  color: var(--si-body-color);
+}
+
+@layer utilities {
+  .rounded-pill {
+    border-radius: var(--si-border-radius-pill);
+  }
+}
