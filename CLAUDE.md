@@ -228,12 +228,14 @@ Templates disponibles:
 - ✅ `portfolio` — Freelancer creativo (Hero agency + FeaturesGrid + Stats row + Testimonials + CTA dark + Footer)
 - ✅ `software-company` — B2B ERP (Hero saas + LogoCloud + FeaturesGrid + HowItWorksSteps + Pricing enterprise + Testimonials + CTA gradient + Footer)
 
-### FASE 4 — Builder UI completo ⏳ PENDIENTE
-- Chat funcional con el agente
-- Preview en tiempo real de `PageConfig`
-- Dark/light mode toggle
-- Panel de edición de colores
-- Historial de chats
+### FASE 4 — Builder UI completo ✅ COMPLETA
+- [x] Chat funcional con el agente (`/api/agent` conectado, mensajes con store Zustand)
+- [x] Preview en tiempo real de `PageConfig` (PageRenderer integrado en panel derecho)
+- [x] Dark/light mode toggle (toggle clase `.dark` en `<html>`)
+- [x] Color picker de primario (actualiza `--si-primary` CSS var en tiempo real)
+- [x] Template quick-load (8 chips para cargar templates sin invocar al agente)
+- [x] Loading state con animación de puntos mientras el agente genera
+- [x] Persistencia del historial vía Zustand + localStorage
 
 ### FASE 5 — Export System ⏳ PENDIENTE
 - Export como proyecto Next.js standalone
