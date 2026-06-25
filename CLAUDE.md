@@ -215,8 +215,18 @@ Orden de prioridad:
 9. ✅ `FooterSection` — variantes light/dark, columns de links, social icons SVG inline, copyright
 10. ✅ `HowItWorksSteps` — variantes light/dark/gray, pasos numerados o con icono, connector line desktop
 
-### FASE 3 — Templates ⏳ PENDIENTE
-10 templates que componen secciones: saas-v1, saas-v2, agency, app-showcase, financial, medical, portfolio, software-company.
+### FASE 3 — Templates ✅ COMPLETA
+8 templates como `PageConfig` en `apps/builder/src/templates/`. Un `PageRenderer` en `src/components/PageRenderer.tsx` mapea `SectionConfig` a los componentes de silicon-ui.
+
+Templates disponibles:
+- ✅ `saas-v1` — Project management tool (HeroSection saas + LogoCloud + FeaturesGrid + HowItWorksSteps + Pricing + Testimonials + CTA + Footer)
+- ✅ `saas-v2` — Analytics platform (Hero + Stats row + FeaturesGrid dark 4col + Pricing + FAQ + CTA gradient + Footer)
+- ✅ `agency` — Marketing digital (Hero agency + LogoCloud + FeaturesGrid + Stats grid + Testimonials + CTA dark + Footer)
+- ✅ `app-showcase` — Mobile app (Hero app + FeaturesGrid 2col + HowItWorksSteps + Testimonials + Pricing + CTA gradient + Footer)
+- ✅ `financial` — Fintech / inversiones (Hero financial + Stats row + FeaturesGrid + Testimonials + FAQ + CTA + Footer)
+- ✅ `medical` — Clínica / salud digital (Hero minimal + FeaturesGrid + Stats grid + Testimonials + FAQ + CTA + Footer)
+- ✅ `portfolio` — Freelancer creativo (Hero agency + FeaturesGrid + Stats row + Testimonials + CTA dark + Footer)
+- ✅ `software-company` — B2B ERP (Hero saas + LogoCloud + FeaturesGrid + HowItWorksSteps + Pricing enterprise + Testimonials + CTA gradient + Footer)
 
 ### FASE 4 — Builder UI completo ⏳ PENDIENTE
 - Chat funcional con el agente

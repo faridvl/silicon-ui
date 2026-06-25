@@ -118,7 +118,7 @@ Import the design tokens (CSS custom properties) in your global CSS:
 |-------|-------------|--------|
 | 1 | Foundation — 25 base components + design tokens | ✅ Done |
 | 2 | Section components — HeroSection, FeaturesGrid, PricingSection, etc. | ✅ Done |
-| 3 | Page templates — 10 full templates (SaaS, Agency, Financial…) | ⏳ Pending |
+| 3 | Page templates — 8 full templates (SaaS, Agency, Financial…) + PageRenderer | ✅ Done |
 | 4 | Builder UI — functional chat + live preview + color editor | ⏳ Pending |
 | 5 | Export system — Next.js project, static HTML, ZIP | ⏳ Pending |
 | 6 | Developer experience — Storybook + `/components` catalog page | ⏳ Pending |
