@@ -66,30 +66,62 @@ Import the design tokens (CSS custom properties) in your global CSS:
 
 ## Component library — current status
 
-| Component | Status |
-|-----------|--------|
-| Button | ✅ Done |
-| Badge | ✅ Done |
-| Card | ✅ Done |
-| Alert | ⬜ Pending |
-| Accordion | ⬜ Pending |
-| Tabs | ⬜ Pending |
-| Modal | ⬜ Pending |
-| Input / Form | ⬜ Pending |
-| Tooltip | ⬜ Pending |
-| Toast | ⬜ Pending |
-| Carousel | ⬜ Pending |
-| + 14 more... | ⬜ Pending |
+### Base components (Fase 1 — all done ✅)
+
+| Component | Notes |
+|-----------|-------|
+| Accordion | Compound + Context, CSS grid-rows animation |
+| Alert | AlertTitle + AlertDescription |
+| AspectRatio | Padding-bottom trick |
+| Avatar | AvatarImage + AvatarFallback |
+| Badge | CVA variants |
+| Breadcrumb | Composable (List, Item, Link, Page, Separator) |
+| Button | Loading state, iconLeft/iconRight |
+| Card | Composable (Header, Title, Description, Content, Footer) |
+| Carousel | Compound + Context, framer-motion |
+| Checkbox | With integrated label |
+| Dropdown | Compound + Context, framer-motion, click-outside |
+| Icon | Boxicons wrapper (regular / solid / logos) |
+| Input / Form | Input, Textarea, Label, FormGroup, FormHint, FormError |
+| Modal | createPortal + framer-motion, Escape key, body scroll lock |
+| Pagination | Page generation with ellipsis |
+| Progress | Color variants |
+| Radio | With integrated label |
+| Select | Native `<select>` with Silicon styles |
+| Separator | Horizontal / vertical |
+| Skeleton | animate-pulse |
+| Spinner | Border-based, accessible sr-only label |
+| Switch | CSS-only toggle, sizes sm/md/lg |
+| Table | Composable (Header, Body, Footer, Row, Head, Cell, Caption) |
+| Tabs | Compound + Context |
+| Toast | createPortal + useToast hook + ToastProvider, 6 positions |
+| Tooltip | Standalone and compound API |
+
+### Section components (Fase 2 — in progress 🔄)
+
+| Component | Variants | Status |
+|-----------|----------|--------|
+| HeroSection | saas, agency, app, financial, minimal | ✅ Done |
+| FeaturesGrid | — | ⏳ Pending |
+| PricingSection | monthly/annual toggle | ⏳ Pending |
+| TestimonialsCarousel | — | ⏳ Pending |
+| CTABanner | primary, dark, gradient | ⏳ Pending |
+| StatsSection | row, grid | ⏳ Pending |
+| FAQAccordion | — | ⏳ Pending |
+| LogoCloud | — | ⏳ Pending |
+| FooterSection | — | ⏳ Pending |
+| HowItWorksSteps | — | ⏳ Pending |
 
 ## Development roadmap
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| 1 | Foundation — 25 base components + design tokens | 🔄 In progress |
-| 2 | Section components — HeroSection, FeaturesGrid, PricingSection, etc. | ⏳ Pending |
+| 1 | Foundation — 25 base components + design tokens | ✅ Done |
+| 2 | Section components — HeroSection, FeaturesGrid, PricingSection, etc. | 🔄 In progress |
 | 3 | Page templates — 10 full templates (SaaS, Agency, Financial…) | ⏳ Pending |
 | 4 | Builder UI — functional chat + live preview + color editor | ⏳ Pending |
 | 5 | Export system — Next.js project, static HTML, ZIP | ⏳ Pending |
+| 6 | Developer experience — Storybook + `/components` catalog page | ⏳ Pending |
 
 ## Tech stack
 

@@ -93,6 +93,14 @@ pnpm format
 
 ---
 
+## Convenciones de documentación
+
+> **Regla obligatoria:** Después de cada componente o fase completada, actualizar:
+> 1. `CLAUDE.md` — marcar el ítem como ✅, actualizar el estado de la fase
+> 2. `README.md` — actualizar la tabla de componentes y el roadmap
+
+---
+
 ## Convenciones de código
 
 ### TypeScript
@@ -190,12 +198,12 @@ Todo lo que genera el agente es un `PageConfig`. Si cambias este tipo, actualiza
 - [x] 25 componentes base de silicon-ui (todos con type-check ok)
 - [x] Dependencias instaladas y compilación verificada
 
-### FASE 2 — Section Components ⏳ PENDIENTE
+### FASE 2 — Section Components 🔄 EN PROGRESO
 Secciones completas como `HeroSection`, `FeaturesGrid`, `PricingSection`, etc.
 Cada sección acepta su config type de `silicon.ts` como props.
 
 Orden de prioridad:
-1. `HeroSection` (más visible, todas las landings lo usan)
+1. ✅ `HeroSection` — 5 variantes (saas, agency, app, financial, minimal), media support, decorative bg
 2. `FeaturesGrid`
 3. `PricingSection` (con toggle mensual/anual)
 4. `TestimonialsCarousel`
