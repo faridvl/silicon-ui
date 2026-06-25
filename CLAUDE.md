@@ -175,7 +175,7 @@ Todo lo que genera el agente es un `PageConfig`. Si cambias este tipo, actualiza
 
 ## Plan de desarrollo y estado actual
 
-### FASE 1 — Fundación ✅ EN PROGRESO
+### FASE 1 — Fundación ✅ COMPLETA
 - [x] Setup monorepo (Turborepo + pnpm)
 - [x] Config TypeScript compartida
 - [x] Tailwind preset con tokens de Silicon
@@ -187,8 +187,8 @@ Todo lo que genera el agente es un `PageConfig`. Si cambias este tipo, actualiza
 - [x] `PageConfig` types definidos
 - [x] Zustand store del builder
 - [x] API route del agente (esqueleto)
-- [ ] Completar 25 componentes base de silicon-ui
-- [ ] Instalar dependencias y verificar que compila
+- [x] 25 componentes base de silicon-ui (todos con type-check ok)
+- [x] Dependencias instaladas y compilación verificada
 
 ### FASE 2 — Section Components ⏳ PENDIENTE
 Secciones completas como `HeroSection`, `FeaturesGrid`, `PricingSection`, etc.
@@ -229,35 +229,42 @@ Orden de prioridad:
 
 ---
 
-## Componentes pendientes de silicon-ui (Fase 1)
+## Componentes de silicon-ui (Fase 1 — todos completos ✅)
 
 ```
-✅ Button
+✅ Accordion     — compound + Context, animación CSS grid-rows
+✅ Alert         — con AlertTitle y AlertDescription
+✅ AspectRatio   — wrapper con padding-bottom trick
+✅ Avatar        — con AvatarImage y AvatarFallback
 ✅ Badge
-✅ Card
-⬜ Alert
-⬜ Avatar
-⬜ Accordion
-⬜ Tabs
-⬜ Modal
-⬜ Dropdown
-⬜ Input / Form Controls
-⬜ Select
-⬜ Checkbox / Radio
-⬜ Toggle / Switch
-⬜ Tooltip
-⬜ Toast / Notification
-⬜ Pagination
-⬜ Breadcrumb
-⬜ Progress Bar
-⬜ Skeleton (loading state)
-⬜ Spinner
-⬜ Table
-⬜ Icon (wrapper Boxicons)
-⬜ Separator / Divider
-⬜ Aspect Ratio
-⬜ Carousel (Embla)
+✅ Breadcrumb    — composable (List, Item, Link, Page, Separator)
+✅ Button        — con loading state e iconLeft/iconRight
+✅ Card          — composable (Header, Title, Description, Content, Footer)
+✅ Carousel      — compound + Context, framer-motion (sin Embla)
+✅ Checkbox      — con label integrado
+✅ Dropdown      — compound + Context, framer-motion, click-outside
+✅ Icon          — wrapper Boxicons (regular / solid / logos)
+✅ Input         — con Textarea, Label, FormGroup, FormHint, FormError
+✅ Modal         — createPortal + framer-motion, Escape key, body scroll lock
+✅ Pagination    — con generación de páginas y ellipsis
+✅ Progress      — con variantes de color
+✅ Radio         — con label integrado (en Checkbox/)
+✅ Select        — native <select> con estilos Silicon
+✅ Separator     — horizontal / vertical
+✅ Skeleton      — animate-pulse
+✅ Spinner       — border-based, accesible con sr-only label
+✅ Switch        — CSS-only toggle (sin JS extra), tamaños sm/md/lg
+✅ Table         — composable (Header, Body, Footer, Row, Head, Cell, Caption)
+✅ Tabs          — compound + Context
+✅ Toast         — createPortal + useToast hook + ToastProvider, 6 posiciones
+✅ Tooltip       — standalone y compound API
 ```
+
+### Notas de implementación relevantes
+- `Carousel` usa framer-motion (no Embla) — suficiente para el caso de uso actual
+- `Icon` requiere que el consumer importe el CSS de Boxicons externamente
+- `Modal` y `Toast` tienen guard SSR (`useState mounted`) para `createPortal`
+- `Dropdown` separa el `motion.div` de animación del `div` de ref para respetar `exactOptionalPropertyTypes: true`
 
 ---
 
