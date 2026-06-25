@@ -90,6 +90,21 @@ export type TestimonialsSectionConfig = {
   testimonials: TestimonialItem[]
 }
 
+export type HowItWorksStep = {
+  step: number
+  title: string
+  description: string
+  icon?: string
+}
+
+export type HowItWorksSectionConfig = {
+  type: 'how-it-works'
+  badge?: string
+  headline: string
+  subheadline?: string
+  steps: HowItWorksStep[]
+}
+
 export type StatItem = {
   value: string
   label: string
@@ -144,6 +159,7 @@ export type FooterConfig = {
 export type SectionConfig =
   | HeroSectionConfig
   | FeaturesSectionConfig
+  | HowItWorksSectionConfig
   | PricingSectionConfig
   | TestimonialsSectionConfig
   | StatsSectionConfig

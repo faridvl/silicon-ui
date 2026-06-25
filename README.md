@@ -97,27 +97,27 @@ Import the design tokens (CSS custom properties) in your global CSS:
 | Toast | createPortal + useToast hook + ToastProvider, 6 positions |
 | Tooltip | Standalone and compound API |
 
-### Section components (Fase 2 — in progress 🔄)
+### Section components (Fase 2 — all done ✅)
 
-| Component | Variants | Status |
-|-----------|----------|--------|
-| HeroSection | saas, agency, app, financial, minimal | ✅ Done |
-| FeaturesGrid | light, dark, gray · icon: boxed, circle, flat | ✅ Done |
-| PricingSection | light, dark, gray · monthly/annual toggle · highlighted plan | ✅ Done |
-| TestimonialsCarousel | light, dark, gray · carousel/grid · rating stars | ✅ Done |
-| CTABanner | primary, dark, gradient | ✅ Done |
-| StatsSection | row, grid | ⏳ Pending |
-| FAQAccordion | — | ⏳ Pending |
-| LogoCloud | — | ⏳ Pending |
-| FooterSection | — | ⏳ Pending |
-| HowItWorksSteps | — | ⏳ Pending |
+| Component | Variants | Notes |
+|-----------|----------|-------|
+| HeroSection | saas, agency, app, financial, minimal | Media support, decorative bg |
+| FeaturesGrid | light, dark, gray · icon: boxed, circle, flat | Columns 2/3/4 |
+| PricingSection | light, dark, gray | Monthly/annual toggle, highlighted plan |
+| TestimonialsCarousel | light, dark, gray · carousel/grid | Rating stars, framer-motion |
+| CTABanner | primary, dark, gradient | Decorative blobs on gradient |
+| StatsSection | light, dark, gray · row/grid | Flex row with dividers or card grid |
+| FAQAccordion | light, dark, gray | Uses Accordion compound component |
+| LogoCloud | light, dark, gray | Grayscale logos, color on hover |
+| FooterSection | light, dark | Column links, social icons, copyright |
+| HowItWorksSteps | light, dark, gray | Numbered steps or icon, connector line |
 
 ## Development roadmap
 
 | Phase | Description | Status |
 |-------|-------------|--------|
 | 1 | Foundation — 25 base components + design tokens | ✅ Done |
-| 2 | Section components — HeroSection, FeaturesGrid, PricingSection, etc. | 🔄 In progress |
+| 2 | Section components — HeroSection, FeaturesGrid, PricingSection, etc. | ✅ Done |
 | 3 | Page templates — 10 full templates (SaaS, Agency, Financial…) | ⏳ Pending |
 | 4 | Builder UI — functional chat + live preview + color editor | ⏳ Pending |
 | 5 | Export system — Next.js project, static HTML, ZIP | ⏳ Pending |

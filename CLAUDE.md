@@ -199,7 +199,7 @@ Todo lo que genera el agente es un `PageConfig`. Si cambias este tipo, actualiza
 - [x] 25 componentes base de silicon-ui (todos con type-check ok)
 - [x] Dependencias instaladas y compilación verificada
 
-### FASE 2 — Section Components 🔄 EN PROGRESO
+### FASE 2 — Section Components ✅ COMPLETA
 Secciones completas como `HeroSection`, `FeaturesGrid`, `PricingSection`, etc.
 Cada sección acepta su config type de `silicon.ts` como props.
 
@@ -209,11 +209,11 @@ Orden de prioridad:
 3. ✅ `PricingSection` — variantes light/dark/gray, toggle mensual/anual, plan destacado
 4. ✅ `TestimonialsCarousel` — variantes light/dark/gray, layouts carousel/grid, rating stars, animación framer-motion
 5. ✅ `CTABanner` — variantes primary/dark/gradient, decorative blobs en gradient, botones light + ghost-white
-6. `StatsSection`
-7. `FAQAccordion`
-8. `LogoCloud`
-9. `FooterSection`
-10. `HowItWorksSteps`
+6. ✅ `StatsSection` — variantes light/dark/gray, layouts row (flex con dividers) / grid (cards)
+7. ✅ `FAQAccordion` — variantes light/dark/gray, usa Accordion compound, badge + headline
+8. ✅ `LogoCloud` — variantes light/dark/gray, logos grayscale hover-color, link opcional
+9. ✅ `FooterSection` — variantes light/dark, columns de links, social icons SVG inline, copyright
+10. ✅ `HowItWorksSteps` — variantes light/dark/gray, pasos numerados o con icono, connector line desktop
 
 ### FASE 3 — Templates ⏳ PENDIENTE
 10 templates que componen secciones: saas-v1, saas-v2, agency, app-showcase, financial, medical, portfolio, software-company.
