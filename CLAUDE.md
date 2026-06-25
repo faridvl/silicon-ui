@@ -206,7 +206,7 @@ Cada sección acepta su config type de `silicon.ts` como props.
 Orden de prioridad:
 1. ✅ `HeroSection` — 5 variantes (saas, agency, app, financial, minimal), media support, decorative bg
 2. ✅ `FeaturesGrid` — variantes light/dark/gray, iconStyle boxed/circle/flat, columns 2/3/4
-3. `PricingSection` (con toggle mensual/anual)
+3. ✅ `PricingSection` — variantes light/dark/gray, toggle mensual/anual, plan destacado
 4. `TestimonialsCarousel`
 5. `CTABanner`
 6. `StatsSection`
