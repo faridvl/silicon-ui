@@ -208,7 +208,7 @@ Orden de prioridad:
 2. ✅ `FeaturesGrid` — variantes light/dark/gray, iconStyle boxed/circle/flat, columns 2/3/4
 3. ✅ `PricingSection` — variantes light/dark/gray, toggle mensual/anual, plan destacado
 4. ✅ `TestimonialsCarousel` — variantes light/dark/gray, layouts carousel/grid, rating stars, animación framer-motion
-5. `CTABanner`
+5. ✅ `CTABanner` — variantes primary/dark/gradient, decorative blobs en gradient, botones light + ghost-white
 6. `StatsSection`
 7. `FAQAccordion`
 8. `LogoCloud`

@@ -105,7 +105,7 @@ Import the design tokens (CSS custom properties) in your global CSS:
 | FeaturesGrid | light, dark, gray · icon: boxed, circle, flat | ✅ Done |
 | PricingSection | light, dark, gray · monthly/annual toggle · highlighted plan | ✅ Done |
 | TestimonialsCarousel | light, dark, gray · carousel/grid · rating stars | ✅ Done |
-| CTABanner | primary, dark, gradient | ⏳ Pending |
+| CTABanner | primary, dark, gradient | ✅ Done |
 | StatsSection | row, grid | ⏳ Pending |
 | FAQAccordion | — | ⏳ Pending |
 | LogoCloud | — | ⏳ Pending |
