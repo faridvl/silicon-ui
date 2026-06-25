@@ -104,7 +104,7 @@ Import the design tokens (CSS custom properties) in your global CSS:
 | HeroSection | saas, agency, app, financial, minimal | ✅ Done |
 | FeaturesGrid | light, dark, gray · icon: boxed, circle, flat | ✅ Done |
 | PricingSection | light, dark, gray · monthly/annual toggle · highlighted plan | ✅ Done |
-| TestimonialsCarousel | — | ⏳ Pending |
+| TestimonialsCarousel | light, dark, gray · carousel/grid · rating stars | ✅ Done |
 | CTABanner | primary, dark, gradient | ⏳ Pending |
 | StatsSection | row, grid | ⏳ Pending |
 | FAQAccordion | — | ⏳ Pending |
