@@ -221,6 +221,12 @@ Orden de prioridad:
 - Export como HTML estático
 - Export ZIP
 
+### FASE 6 — Developer Experience ⏳ PENDIENTE
+- **Storybook** en `packages/silicon-ui` — catálogo aislado por componente con controles interactivos (variant, size, loading, etc.) y docs automáticos
+- **Página `/components`** en `apps/builder` — vista rápida integrada en el builder para ver componentes en contexto con el design system real
+- Ambos conviven: Storybook en `localhost:6006`, `/components` en `localhost:3000/components`
+- Storybook deployable en GitHub Pages como documentación pública de `@silicon/ui`
+
 ---
 
 ## Componentes pendientes de silicon-ui (Fase 1)
