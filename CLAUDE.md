@@ -244,11 +244,11 @@ Templates disponibles:
 
 **Nota de implementación:** `react-dom/server` está bloqueado en Next.js 15 App Router route handlers (conflicto con el pipeline RSC). El export HTML se hace en el cliente capturando el DOM del preview — el beneficio es que el export refleja el estado visual actual (pricing toggle, dark mode, color primario).
 
-### FASE 6 — Developer Experience 🔄 EN PROGRESO
+### FASE 6 — Developer Experience ✅ COMPLETA
 - [x] **Página `/components`** en `apps/builder` — catálogo de 35 componentes: 22 base con demos interactivos (Modal, Toast, Pagination, dark mode toggle) + 10 secciones full-width + sidebar con anclas
-- [ ] **Storybook** en `packages/silicon-ui` — catálogo aislado por componente con controles interactivos (variant, size, loading, etc.) y docs automáticos
-- Ambos conviven: Storybook en `localhost:6006`, `/components` en `localhost:3000/components`
-- Storybook deployable en GitHub Pages como documentación pública de `@silicon/ui`
+- [x] **Storybook** en `packages/silicon-ui` — Storybook 8.6 + Vite 5 + React 18; stories para 22 componentes base y 10 secciones con autodocs y Controls interactivos (variant, size, loading, etc.)
+- Ambos conviven: Storybook en `localhost:6006` (`pnpm --filter @silicon/ui storybook`), `/components` en `localhost:3000/components`
+- Storybook deployable en GitHub Pages como documentación pública de `@silicon/ui` (`pnpm --filter @silicon/ui build-storybook`)
 
 ---
 
